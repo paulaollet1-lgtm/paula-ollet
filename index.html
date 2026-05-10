@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paula Ollet | E-Commerce Operations VA</title>
+  <meta name="description" content="Portfolio of Paula Ollet, E-Commerce Operations VA specializing in inventory, purchasing, fulfillment, ERP support, and operations reporting." />
+  <style>
+    :root {
+      --bg: #f7f2ea;
+      --card: #fffaf3;
+      --text: #151515;
+      --muted: #6f665d;
+      --accent: #b89455;
+      --accent-dark: #7d612f;
+      --line: #dfd5c8;
+      --dark: #101010;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, 92%); margin: auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(247, 242, 234, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    .brand { font-weight: 800; letter-spacing: .5px; }
+    .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+    .nav-links a:hover { color: var(--accent-dark); }
+
+    .hero { padding: 88px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+    .eyebrow { color: var(--accent-dark); font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 1.6px; margin-bottom: 16px; }
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(54px, 9vw, 118px); line-height: .9; letter-spacing: -4px; margin-bottom: 26px; }
+    h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: -2px; margin-bottom: 22px; }
+    h3 { font-size: 20px; margin-bottom: 10px; }
+    .hero p { font-size: 20px; color: var(--muted); max-width: 680px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .btn { padding: 13px 20px; border-radius: 999px; font-weight: 700; border: 1px solid var(--text); transition: .2s ease; }
+    .btn.primary { background: var(--text); color: white; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.12); }
+    .photo-card { border: 1px solid var(--line); background: var(--card); padding: 16px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.08); }
+    .photo-placeholder { min-height: 500px; border-radius: 18px; background: linear-gradient(145deg, #ede2d4, #fff9ef); display: grid; place-items: center; text-align: center; padding: 24px; color: var(--muted); }
+
+    section { padding: 78px 0; border-top: 1px solid var(--line); }
+    .section-intro { max-width: 760px; margin-bottom: 36px; color: var(--muted); font-size: 18px; }
+    .about-grid, .case-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px; }
+    .dark-card { background: var(--dark); color: white; border-radius: 24px; padding: 28px; }
+    .dark-card span { color: #d7b66f; font-weight: 800; }
+
+    .services-grid, .tools-grid, .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service, .tool, .why { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+    .num { font-size: 13px; font-weight: 900; color: var(--accent-dark); margin-bottom: 16px; }
+    .tool { text-align: center; font-weight: 700; }
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .case-label { color: var(--accent-dark); font-weight: 900; letter-spacing: 1px; font-size: 13px; margin-bottom: 12px; text-transform: uppercase; }
+    .meta { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; color: var(--muted); font-size: 14px; }
+    .quote { border-left: 4px solid var(--accent); padding-left: 18px; color: var(--muted); font-style: italic; margin-top: 18px; }
+    .placeholder { border: 1px dashed var(--accent); border-radius: 22px; min-height: 290px; display: grid; place-items: center; text-align: center; padding: 24px; color: var(--muted); background: rgba(255,255,255,.35); }
+
+    .contact-box a { color: var(--accent-dark); font-weight: 800; word-break: break-word; }
+    footer { padding: 28px 0; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .case-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services-grid, .tools-grid, .why-grid, .process { grid-template-columns: 1fr 1fr; }
+      .photo-placeholder { min-height: 360px; }
+    }
+    @media (max-width: 560px) {
+      .services-grid, .tools-grid, .why-grid, .process { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      .hero { padding-top: 54px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="#top" class="brand">Paula Ollet</a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#process">Process</a><a href="#case-studies">Case Studies</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">E-Commerce Operations VA | Inventory, Orders & Fulfillment</p>
+          <h1>Paula Ollet</h1>
+          <p>I help e-commerce and product-based businesses maintain accurate inventory, coordinate purchasing, and improve fulfillment workflows so operations stay organized and orders move smoothly.</p>
+          <div class="buttons">
+            <a class="btn primary" href="#contact">Book a Discovery Call</a>
+            <a class="btn" href="#case-studies">View Sample Work</a>
+          </div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">Replace this area with your professional photo<br><small>Upload image to GitHub and update the src later.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About Me</p>
+          <h2>Reliable operations support for growing stores.</h2>
+          <p class="section-intro">I specialize in inventory, purchasing, fulfillment support, ERP coordination, and operations reporting. With 6+ years of corporate experience, I understand how accurate tracking and organized workflows help prevent stock issues, missed follow-ups, and delayed orders.</p>
+          <p>When you work with me, you get a detail-oriented operations partner who keeps trackers updated, follows up consistently, and flags issues before they affect stock levels or customer orders.</p>
+        </div>
+        <div class="dark-card">
+          <h3>Quick Facts</h3>
+          <p>Years of experience: <span>6+ years</span></p>
+          <p>Location: <span>Davao City, Philippines</span></p>
+          <p>Time zone: <span>PHT / UTC+8</span></p>
+          <p>Availability: <span>Full-time, 8 hours/day</span></p>
+          <p>Work style: <span>Remote, organized, responsive</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <p class="eyebrow">Services</p>
+        <h2>What I deliver.</h2>
+        <div class="services-grid">
+          <div class="service"><div class="num">01</div><h3>Inventory Tracking</h3><p>Maintain organized stock records using ERP systems and spreadsheets to reduce shortages, overstock, and data errors.</p></div>
+          <div class="service"><div class="num">02</div><h3>Purchase Order Monitoring</h3><p>Track purchase orders from request to delivery, receiving, and invoice follow-up.</p></div>
+          <div class="service"><div class="num">03</div><h3>Fulfillment Coordination</h3><p>Monitor order movement, warehouse updates, delivery status, and fulfillment timelines.</p></div>
+          <div class="service"><div class="num">04</div><h3>Reorder Support</h3><p>Identify low-stock risks early using stock levels, consumption, safety stock, and supplier lead times.</p></div>
+          <div class="service"><div class="num">05</div><h3>Operations Reporting</h3><p>Create simple reports and dashboards for inventory, purchasing, logistics, and follow-up status.</p></div>
+          <div class="service"><div class="num">06</div><h3>Supplier Coordination</h3><p>Organize supplier communication, quotation follow-ups, delivery schedules, and documentation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">Tools</p>
+        <h2>Tools I work in.</h2>
+        <p class="section-intro">Systems and tools I use to support inventory management, purchasing, fulfillment, reporting, and business operations.</p>
+        <div class="tools-grid">
+          <div class="tool">Microsoft Dynamics AX</div><div class="tool">Google Sheets</div><div class="tool">Microsoft Excel</div><div class="tool">Google Forms</div><div class="tool">Google Apps Script</div><div class="tool">Notion</div><div class="tool">Google Drive</div><div class="tool">Slack</div><div class="tool">Microsoft Teams</div><div class="tool">Loom</div><div class="tool">Gmail</div><div class="tool">ChatGPT</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <p class="eyebrow">Process</p>
+        <h2>How we’ll work.</h2>
+        <div class="process">
+          <div class="card"><div class="num">01</div><h3>Track</h3><p>Monitor inventory, purchase orders, shipments, and operations data.</p></div>
+          <div class="card"><div class="num">02</div><h3>Verify</h3><p>Review records, supplier updates, and fulfillment details for accuracy.</p></div>
+          <div class="card"><div class="num">03</div><h3>Coordinate</h3><p>Follow up with suppliers, warehouses, and internal teams.</p></div>
+          <div class="card"><div class="num">04</div><h3>Optimize</h3><p>Flag delays, stock risks, and workflow gaps before they create bigger issues.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <div class="container">
+        <p class="eyebrow">Case Studies</p>
+        <h2>Selected work.</h2>
+        <div class="case-grid">
+          <div class="card">
+            <p class="case-label">Case Study 01</p>
+            <h3>Improved inventory, purchasing, logistics, and invoicing workflow</h3>
+            <div class="meta"><span>Client: Corporate</span><span>Duration: 3 weeks</span></div>
+            <p><strong>Problem:</strong> PO statuses were not consistently tracked from ordering to delivery and receiving, creating confusion and risk of negative inventory and missed unpaid invoices.</p>
+            <p><strong>Solution:</strong> Reviewed PO history in the ERP system and created a clearer workflow for tracking purchase, delivery, receiving, and invoicing.</p>
+            <p><strong>Result:</strong> Improved visibility across purchasing, delivery, receiving, and invoicing, making issues easier to identify and follow up.</p>
+            <p class="quote">“Paula is organized, reliable, and detail-oriented.”</p>
+          </div>
+          <div class="card">
+            <p class="case-label">Case Study 02</p>
+            <h3>Organized inventory tracking system</h3>
+            <div class="placeholder">Add screenshot of your Google Sheets inventory tracker, dashboard, or SOP here.</div>
+            <p><strong>Problem:</strong> The inventory tracker was difficult to monitor and update accurately.</p>
+            <p><strong>Solution:</strong> Reorganized the sheet structure, standardized categories, and simplified stock movement tracking.</p>
+            <p><strong>Result:</strong> Faster stock monitoring, clearer inventory visibility, and reduced manual checking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">Why Me</p>
+        <h2>Why work with me.</h2>
+        <div class="why-grid">
+          <div class="why"><h3>Time Zone Advantage</h3><p>Based in the Philippines, I can support overlapping US/AU hours and prepare updates before the next business day.</p></div>
+          <div class="why"><h3>Clear Communication</h3><p>Experienced in reports, supplier coordination, documentation, and professional business communication.</p></div>
+          <div class="why"><h3>Operations Experience</h3><p>6+ years in ERP, inventory, purchasing, and operations support.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s talk.</h2>
+          <p class="section-intro">Tell me what you need help organizing, and I’ll show you how I can support your operations.</p>
+        </div>
+        <div class="card contact-box">
+          <p>Email: <a href="mailto:paulaollet1@gmail.com">paulaollet1@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/paula-ollet-6a3792404" target="_blank" rel="noopener">linkedin.com/in/paula-ollet-6a3792404</a></p>
+          <p>WhatsApp: <a href="https://wa.me/639561761458" target="_blank" rel="noopener">+63 956 176 1458</a></p>
+          <p>Working Hours: Mon–Fri, 10:00 AM–7:00 PM PHT</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Paula Ollet. E-Commerce Operations VA Portfolio.</div>
+  </footer>
+</body>
+</html>
